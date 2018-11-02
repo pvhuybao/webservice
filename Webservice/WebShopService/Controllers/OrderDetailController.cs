@@ -29,18 +29,22 @@ namespace WebShopService.Controllers
             try
             {
                 WebShopEntities db = new WebShopEntities();
-                Category category = new Category();
-                category.name = newCategory.name;
-                category.description = newCategory.description;
-                category.id = (from c in db.Categories orderby c.id descending select c.id).First() + 1;
-                if (category.id < 10)
-                    category.code = "CAT00" + category.id;
-                else if (category.id >= 10 && category.id < 100)
-                    category.code = "CAT0" + category.id;
-                else
-                    category.code = "CAT" + category.id;
+                OrderDetail orderDetail = new OrderDetail();
 
-                db.Categories.Add(category);
+                orderDetail.idProduct = newOrderDetail.idProduct;
+                orderDetail.quantity = newOrderDetail.quantity;
+                orderDetail.price = newOrderDetail.price;
+                orderDetail.totalPrice = newOrderDetail.totalPrice;
+
+                orderDetail.id = (from c in db.OrderDetails orderby c.id descending select c.id).First() + 1;
+                if (orderDetail.id < 10)
+                    orderDetail.code = "ORDT00" + orderDetail.id;
+                else if (orderDetail.id >= 10 && orderDetail.id < 100)
+                    orderDetail.code = "ORDT0" + orderDetail.id;
+                else
+                    orderDetail.code = "ORDT" + orderDetail.id;
+
+                db.OrderDetails.Add(orderDetail);
                 db.SaveChanges();
                 return true;
             }
@@ -51,16 +55,17 @@ namespace WebShopService.Controllers
         }
 
         [HttpPut]
-        public bool UpdateCategory(int id, Category newCategory)
+        public bool UpdateOrderDetail(int id, OrderDetail newOrderDetail)
         {
             try
             {
                 WebShopEntities db = new WebShopEntities();
-                Category category = db.Categories.FirstOrDefault(x => x.id == id);
-                if (category == null) return false;
-                category.code = newCategory.code;
-                category.name = newCategory.name;
-                category.description = newCategory.description;
+                OrderDetail orderDetail = db.OrderDetails.FirstOrDefault(x => x.id == id);
+                if (orderDetail == null) return false;
+                orderDetail.idProduct = newOrderDetail.idProduct;
+                orderDetail.quantity = newOrderDetail.quantity;
+                orderDetail.price = newOrderDetail.price;
+                orderDetail.totalPrice = newOrderDetail.totalPrice;
                 db.SaveChanges();
                 return true;
             }
@@ -71,14 +76,14 @@ namespace WebShopService.Controllers
         }
 
         [HttpDelete]
-        public bool DeleteCategory(int id)
+        public bool DeleteOrderDetail(int id)
         {
             try
             {
                 WebShopEntities db = new WebShopEntities();
-                Category category = db.Categories.FirstOrDefault(x => x.id == id);
-                if (category == null) return false;
-                db.Categories.Remove(category);
+                OrderDetail orderDetail = db.OrderDetails.FirstOrDefault(x => x.id == id);
+                if (orderDetail == null) return false;
+                db.OrderDetails.Remove(orderDetail);
                 db.SaveChanges();
                 return true;
             }
