@@ -1,0 +1,104 @@
+<div class="product product-details clearfix" style="margin-left:10px">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="product-body">
+        <div class="section-title">
+          <h3 class="title">Edit Product</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="product-body">
+        <p>
+          <strong>Name:</strong>
+          <input [(ngModel)]="pro.name" class="input search-input">
+        </p>
+      </div>
+    </div>
+    <!-- <div class="col-md-6">
+      <div class="product-body">
+          <p>
+              <strong>Code:</strong>
+              <input [(ngModel)]="code" class="input search-input">
+            </p>
+      </div>
+  </div> -->
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-body">
+        <strong>Category:</strong>
+        <div>
+          <p>
+            <select class=" input custom-select" [(ngModel)]="idCategory">
+              <option *ngFor="let category of categories" [value]="category.id" selected>{{category.name}}</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Image:</strong>
+            <input [(ngModel)]="pro.image" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Description:</strong>
+            <input [(ngModel)]="pro.description" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Detail:</strong>
+            <input [(ngModel)]="pro.detail" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Price:</strong>
+            <input [(ngModel)]="pro.price" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Discount:</strong>
+            <input [(ngModel)]="pro.discount" class="input search-input" type="number" min="0">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    &nbsp;&nbsp;&nbsp;
+    <button class="primary-btn" (click)='edit()'>Save</button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="main-btn" routerLink="/admin/products" routerLinkActive="active">Back</button>
+
+
+
+  </div>
+</div>

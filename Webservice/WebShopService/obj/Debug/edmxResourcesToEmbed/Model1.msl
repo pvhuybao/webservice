@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebShopModelStoreContainer" CdmEntityContainer="WebShopEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="WebShopModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportBills">
+      <EntityTypeMapping TypeName="WebShopModel.ImportBill">
+        <MappingFragment StoreEntitySet="ImportBill">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="agencyName" ColumnName="agencyName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportBillDetails">
+      <EntityTypeMapping TypeName="WebShopModel.ImportBillDetail">
+        <MappingFragment StoreEntitySet="ImportBillDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="WebShopModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="WebShopModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="WebShopModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WebShopModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

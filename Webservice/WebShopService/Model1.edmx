@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="10" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ImportBill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="10" />
+          <Property Name="agencyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="total" Type="int" />
+        </EntityType>
+        <EntityType Name="ImportBillDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="20" />
+          <Property Name="idProduct" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="totalPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="20" />
+          <Property Name="idProduct" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="totalPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="40" />
+          <Property Name="userId" Type="int" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="total" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="description" Type="nvarchar" MaxLength="40" />
+          <Property Name="detail" Type="text" />
+          <Property Name="idCategory" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+          <Property Name="discount" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="20" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="gender" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="20" />
+          <Property Name="phone" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="WebShopModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportBill" EntityType="Self.ImportBill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportBillDetail" EntityType="Self.ImportBillDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ImportBill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="agencyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="total" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ImportBillDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idProduct" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="totalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idProduct" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="totalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idCategory" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="WebShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="ImportBills" EntityType="Self.ImportBill" />
+          <EntitySet Name="ImportBillDetails" EntityType="Self.ImportBillDetail" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebShopModelStoreContainer" CdmEntityContainer="WebShopEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="WebShopModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportBills">
+            <EntityTypeMapping TypeName="WebShopModel.ImportBill">
+              <MappingFragment StoreEntitySet="ImportBill">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="agencyName" ColumnName="agencyName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportBillDetails">
+            <EntityTypeMapping TypeName="WebShopModel.ImportBillDetail">
+              <MappingFragment StoreEntitySet="ImportBillDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="WebShopModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="WebShopModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="WebShopModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="WebShopModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

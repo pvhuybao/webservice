@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="10" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImportBill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="10" />
+    <Property Name="agencyName" Type="nvarchar" MaxLength="40" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="total" Type="int" />
+  </EntityType>
+  <EntityType Name="ImportBillDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="idProduct" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="totalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="idProduct" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="totalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="10" />
+    <Property Name="email" Type="nvarchar" MaxLength="40" />
+    <Property Name="userId" Type="int" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="total" Type="int" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="description" Type="nvarchar" MaxLength="40" />
+    <Property Name="detail" Type="text" />
+    <Property Name="idCategory" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="image" Type="nvarchar" MaxLength="50" />
+    <Property Name="discount" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="username" Type="nvarchar" MaxLength="20" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="20" />
+    <Property Name="gender" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="20" />
+    <Property Name="phone" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="WebShopModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImportBill" EntityType="Self.ImportBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImportBillDetail" EntityType="Self.ImportBillDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
