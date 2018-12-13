@@ -1,0 +1,105 @@
+<div class="product product-details clearfix" style="margin-left:10px">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="product-body">
+        <div class="section-title">
+          <h3 class="title">User information</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="product-body">
+        <p>
+          <strong>Username:</strong>
+          <input [(ngModel)]="user.username" class="input search-input">
+        </p>
+      </div>
+    </div>
+    <!-- <div class="col-md-6">
+      <div class="product-body">
+          <p>
+              <strong>Code:</strong>
+              <input [(ngModel)]="code" class="input search-input">
+            </p>
+      </div>
+  </div> -->
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>First name:</strong>
+            <input [(ngModel)]="user.firstName" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Last name:</strong>
+            <input [(ngModel)]="user.lastName" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Email:</strong>
+            <input [(ngModel)]="user.email" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Phone:</strong>
+            <input [(ngModel)]="user.phone" class="input search-input">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <strong>VIP:</strong>
+        <div>
+          <p>
+            <select class=" input custom-select" [(ngModel)]="user.vip">
+                <option value="0">Normal</option>
+                <option *ngFor="let item of keys" [value]="item">{{vip[item]}}</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Gender:</strong>
+            <input [(ngModel)]="user.gender" class="input search-input" type="text">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    &nbsp;&nbsp;&nbsp;
+    <button class="primary-btn" (click)='Save()'>Save</button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="main-btn" routerLink="/admin/users" routerLinkActive="active">Back</button>
+
+
+
+  </div>
+</div>

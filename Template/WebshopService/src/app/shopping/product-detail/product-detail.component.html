@@ -1,0 +1,73 @@
+<div id="navigation">
+    <!-- container -->
+    <div class="container">
+      <div id="responsive-nav">
+    <div class="menu-nav">
+    <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+    <ul class="menu-list">
+      <li><a [routerLink] = "['/']">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women</a>            
+      </li>
+      <li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men</a>            
+      </li>
+      <li><a href="#">Sales</a></li>
+      <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages</a>            
+      </li>
+    </ul>
+    </div>
+      </div>
+    </div>
+</div>
+
+<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<!--  Product Details -->
+				<div class="product product-details clearfix">
+					<div class="col-md-6">
+						<div id="product-main-view">
+							<div class="product-view">
+								<img src="{{product.image}}" alt="">
+							</div>
+						</div>						
+					</div>
+					<div class="col-md-6">
+						<div class="product-body">
+							<div class="product-label">
+								<!-- <span>New</span> -->
+								<!-- <span class="sale">-20%</span> -->
+							</div>
+							<h2 class="product-name">{{product.name}}</h2>
+							<h3 class="product-price">{{product.salePrice | number}} VND</h3>
+							<p><strong>Mã: </strong> {{product.code}} </p>
+							<p><strong>Số lượng: </strong> {{product.quantity}} </p>
+							<p><strong>Mô tả: </strong> {{product.description}} </p>
+							<p><strong>Thông tin: </strong> {{product.detail}} </p>
+              <br/>
+							<div class="product-btns">
+								<!-- <div class="qty-input">
+									<span class="text-uppercase"><strong>Số lượng mua: </strong></span>
+									<input class="input" type="number" value="0">
+                </div> -->
+                &nbsp;
+								<button (click)="addProductCart(product)" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>								
+              </div>
+              <br/><br/><br/>
+
+              <div id="fb-root"></div>
+              <div class="fb-comments" attr.data-href="http://werqewafdadfxvcbhrwerksadsa.com/{{product.id}}" data-numposts="3"></div>
+
+						</div>
+					</div>					
+
+				</div>
+				<!-- /Product Details -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>

@@ -1,0 +1,160 @@
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="product-body">
+      <div class="section-title">
+        <h3 class="title">Thống kê</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-6">
+    <div class="product-body">
+      <strong>Từ ngày:</strong>
+      <input [(ngModel)]="startDate" type="date" class="input">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="product-body">
+      <div>
+        <p>
+          <strong>Đến ngày:</strong>
+          <input [(ngModel)]="endDate" type="date" class="input">
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-6">
+    <div class="product-body">
+      <div class="pull-left"><br/>
+        <button data-toggle="modal" data-target="#myModal2" class="primary-btn" (click)="Run()">Thống kê</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Thu nhập: </strong>
+            <input [(ngModel)]="total"  class="input">
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+  <div class="order-summary clearfix">
+    <div class="section-title">
+      <h5 class="title">order Details</h5>
+    </div>
+
+    <table class="shopping-cart-table table">
+      <thead>
+        <tr>
+          <th class="text-left">ID</th>
+          <th class="text-center">date</th>
+          <th class="text-center">Total</th>
+          <!-- <th class="text-right"></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderDetail of listOrder">
+          <td class="text-left">
+            <strong>{{orderDetail.code}}</strong>
+
+          </td>
+          <td class="text-center">
+            <strong>{{orderDetail.date}}</strong>
+            <br>
+          </td>
+
+          <td class="total text-center">
+            <strong class="primary-color">{{orderDetail.total | number}}</strong>
+          </td>
+
+          <!-- <td class="qty text-center">
+                <input class="input" type="number" [(ngModel)]="orderDetail.quantity" [ngModelOptions]="{standalone: true}"
+                  min=1 (click)="updateTotal(orderDetail)" (keyup)="updateTotal(orderDetail)">
+              </td> -->
+          <!-- <td class="text-right">
+                <button class="main-btn icon-btn" data-toggle="modal" data-target="#myModal" (click)="setDetailDelete(orderDetail)">
+                  <i class="fa fa-close"></i>
+                </button>
+              </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <div class="pull-left">
+          <button data-toggle="modal" data-target="#myModal2" class="primary-btn" (click)="edit()">Save</button>
+          &nbsp;&nbsp;&nbsp;
+          <button class="main-btn" routerLink="/admin/imports" routerLinkActive="active">Back</button>
+        </div> -->
+
+
+  </div>
+
+  <br>
+</div>
+
+<div class="col-md-6">
+  <div class="order-summary clearfix">
+    <div class="section-title">
+      <h5 class="title">import Details</h5>
+    </div>
+
+    <table class="shopping-cart-table table">
+      <thead>
+        <tr>
+          <th class="text-left">ID</th>
+          <th class="text-center">Date</th>
+          <th class="text-center">Total</th>
+          <!-- <th class="text-right"></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of listImport">
+          <td class="text-left">
+            <strong>{{detail.code}}</strong>
+
+          </td>
+          <td class="text-center">
+            <strong>{{detail.date}}</strong>
+            <br>
+          </td>
+
+          <!-- <td class="qty text-center">
+                <input class="input" type="number" [(ngModel)]="orderDetail.quantity" [ngModelOptions]="{standalone: true}"
+                  min=1 (click)="updateTotal(orderDetail)" (keyup)="updateTotal(orderDetail)">
+              </td> -->
+
+          <td class="total text-center">
+            <strong class="primary-color">{{detail.total | number}}</strong>
+          </td>
+          <!-- <td class="text-right">
+                <button class="main-btn icon-btn" data-toggle="modal" data-target="#myModal" (click)="setDetailDelete(orderDetail)">
+                  <i class="fa fa-close"></i>
+                </button>
+              </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <div class="pull-left">
+          <button data-toggle="modal" data-target="#myModal2" class="primary-btn" (click)="edit()">Save</button>
+          &nbsp;&nbsp;&nbsp;
+          <button class="main-btn" routerLink="/admin/imports" routerLinkActive="active">Back</button>
+        </div> -->
+
+
+  </div>
+
+  <br>
+</div>

@@ -1,0 +1,36 @@
+<div id="navigation">
+  <!-- container -->
+  <div class="container">
+    <div id="responsive-nav">
+      <!-- category nav -->
+      <div class="category-nav">
+        <span class="category-header">Categories <i class="fa fa-list"></i></span>
+        <ul class="category-list">
+          <li *ngFor = "let category of categories; let i = index">
+            <a routerLink="/category/{{category.id}}" routerLinkActive="active">{{category.name}}</a>
+          </li>          
+          <li><a [routerLink]="['/product']">View All</a></li>
+        </ul>
+      </div>
+      <!-- /category nav -->
+
+      <!-- menu nav -->
+      <div class="menu-nav">
+        <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+        <ul class="menu-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women</a>            
+          </li>
+          <li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men</a>            
+          </li>
+          <li><a href="#">Sales</a></li>
+          <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages</a>            
+          </li>
+        </ul>
+      </div>
+      <!-- menu nav -->
+    </div>
+  </div>
+  <!-- /container -->
+</div>

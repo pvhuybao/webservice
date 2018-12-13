@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <div class="section-title ">
+    <h3 class="title">List Orders</h3>
+  </div>
+
+  <div class="pull-right">
+    <div class="btn-group">
+      <a routerLink="../create" routerLinkActive="active" class="primary-btn">Create New</a>
+    </div>
+  </div>
+
+  <table class="shopping-cart-table table table">
+    <thead class="thead-dark">
+      <tr>   
+        <th scope="col">ID</th>
+        <th scope="col">Date</th>
+        <th scope="col">Email</th>
+        <th scope="col">Total</th>
+        <th scope="col">Status</th>
+        <th class="text-right">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let order of listOrders; let i = index">
+      <tr>
+        <td>{{order.code}}</td>
+        <td>{{order.date}}</td>
+        <td>{{order.email}}</td> 
+        <td>{{order.total}}</td>
+        <td>{{status[order.status]}}</td>
+        <td class="text-right">
+          <a routerLink="./detail/{{order.id}}" routerLinkActive="active">
+            <button class="main-btn icon-btn" (click)="getCategory(category)">
+              <i class="fa fa-edit"></i>
+            </button>
+          </a>
+          &nbsp;
+          <!-- <button class="main-btn icon-btn" data-toggle="modal" data-target="#myModal" (click)="getById(category.id)">
+            <i class="fa fa-close"></i>
+          </button> -->
+          <button class="main-btn icon-btn" (click)="delete(order)">
+            <i class="fa fa-close"></i>
+          </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

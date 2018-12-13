@@ -1,0 +1,70 @@
+<div id="navigation">
+    <!-- container -->
+    <div class="container">
+      <div id="responsive-nav">
+    <div class="menu-nav">
+    <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+    <ul class="menu-list">
+      <li><a [routerLink] = "['/']">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women</a>            
+      </li>
+      <li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men</a>            
+      </li>
+      <li><a href="#">Sales</a></li>
+      <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages</a>            
+      </li>
+    </ul>
+    </div>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+  <form #loginForm="ngForm">
+      <div class="row">
+          <div class="col-sm-6 col-md-4 col-md-offset-4">
+              <!-- <h1 class="text-center login-title">Admin Login</h1> -->
+              <!-- <div class="account-wall"></div> -->
+              <div class="section-title">
+                  <h3 class="title">Register</h3>
+              </div>              
+              <div class="form-signin">
+                  <input name="email" [(ngModel)]="firstName" placeholder="First name" class="input">                  
+                  <br/>      
+                  <br/>
+                  <input name="email" [(ngModel)]="lastName" placeholder="Last name" class="input">                  
+                  <br/>      
+                  <br/>
+                  <input name="email" (change)="checkemail()" [(ngModel)]="email" placeholder="Email" class="input">  
+                  <strong *ngIf="checkmail" style="color: red">&nbsp;Email is not correct</strong>                
+                  <br/>      
+                  <br/>
+                  <input name="email" [(ngModel)]="phone" placeholder="Phone" class="input">                  
+                  <br/>      
+                  <br/>
+                  <input name="email" [(ngModel)]="username" (change)="checkUsername()" placeholder="Username" class="input">                  
+                  <strong *ngIf="checkuser" style="color: red">&nbsp;Username is used</strong>
+                  <br/>
+                  <br/>
+                  <input name="email" type="password" [(ngModel)]="password" placeholder="Password" class="input">                  
+                  <br/>      
+                  <br/>                  
+                  <input name="password" [(ngModel)]="rePassword" (input)="checkpassword()" type="password" class="input" placeholder="Re-enter password">
+                  <strong *ngIf="checkpass" style="color: red">&nbsp;Password is not correct</strong>
+                  <br/>
+                  <br/>
+                  <button class="primary-btn btn-block" (click)="register()">
+                      Register
+                  </button>
+                  
+                  
+                  <br/><br/>
+                  <span class="clearfix"></span>
+              </div>
+              <!-- <a href="#" class="text-center new-account">Create an account </a> -->
+          </div>
+      </div>
+  </form>
+</div>
+<br/><br/>

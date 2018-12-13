@@ -1,0 +1,144 @@
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="product-body">
+      <div class="section-title">
+        <h3 class="title">order information</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="product-body">
+      <p>
+        <strong>Code: </strong>&nbsp;&nbsp;&nbsp;
+        <span>{{orderBill.code}}</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-6">
+    <div class="product-body">
+      <strong>Email:</strong>
+      <input [(ngModel)]="orderBill.email" class="input search-input">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="product-body">
+      <div>
+        <p>
+          <strong>Address:</strong>
+          <input [(ngModel)]="orderBill.address" class="input search-input">
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col-md-6">
+    <div class="product-body">
+      <strong>Total:</strong>
+      <input [(ngModel)]="orderBill.total" class="input search-input">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="product-body">
+      <div>
+        <p>
+          <strong>Date:</strong>
+          <input [(ngModel)]="orderBill.date" type="text" class="input">
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="product-body">
+      <div>
+        <p>
+          <strong>Status:</strong>
+          <select name="status" class="input custom-select" [(ngModel)]="orderBill.status">
+            <option *ngFor="let item of keys" [value]="item">{{status[item]}}</option>
+          </select>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="product-body"><br />
+      <div class="pull-left">
+        <button data-toggle="modal" data-target="#myModal2" class="primary-btn" (click)="save()">Save</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="main-btn" routerLink="/admin/orders" routerLinkActive="active">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="order-summary clearfix">
+    <div class="section-title">
+      <h3 class="title">order Details</h3>
+    </div>
+
+    <table class="shopping-cart-table table">
+      <thead>
+        <tr>
+          <th class="text-left">Product</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Total</th>
+          <!-- <th class="text-right"></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderDetail of listDetail">
+          <td class="text-left">
+            <strong>{{orderDetail.nameProduct}}</strong>
+
+          </td>
+          <td class="price text-center">
+            <strong>{{orderDetail.price | number}}</strong>
+            <br>
+          </td>
+
+          <td class="price text-center">
+            <strong>{{orderDetail.quantity | number}}</strong>
+            <br>
+          </td>
+
+          <!-- <td class="qty text-center">
+              <input class="input" type="number" [(ngModel)]="orderDetail.quantity" [ngModelOptions]="{standalone: true}"
+                min=1 (click)="updateTotal(orderDetail)" (keyup)="updateTotal(orderDetail)">
+            </td> -->
+
+          <td class="total text-center">
+            <strong class="primary-color">{{orderDetail.totalPrice | number}}</strong>
+          </td>
+          <!-- <td class="text-right">
+              <button class="main-btn icon-btn" data-toggle="modal" data-target="#myModal" (click)="setDetailDelete(orderDetail)">
+                <i class="fa fa-close"></i>
+              </button>
+            </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <div class="pull-left">
+        <button data-toggle="modal" data-target="#myModal2" class="primary-btn" (click)="edit()">Save</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="main-btn" routerLink="/admin/imports" routerLinkActive="active">Back</button>
+      </div> -->
+
+
+  </div>
+
+  <br>
+</div>

@@ -1,0 +1,145 @@
+<app-category-list></app-category-list>
+<!-- /NAVIGATION -->
+
+<!-- HOME -->
+<div id="home">
+  <!-- container -->
+  <div class="container">
+    <!-- home wrap -->
+    <div class="home-wrap">
+      <!-- home slick -->
+      <div id="home-slick">
+        <!-- banner -->
+        <div class="banner banner-1">
+          <img src="../../../assets/img/laptopbanner.jpg" alt="">
+          <div class="banner-caption text-center">							
+            <h3 class="white-color font-weak">Up to 50% Discount</h3>
+            <button class="primary-btn">Shop Now</button>
+          </div>
+        </div>
+        <!-- /banner -->
+                  
+      </div>
+      <!-- /home slick -->
+    </div>
+    <!-- /home wrap -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /HOME -->
+
+<!-- section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- banner -->
+      <div class="col-md-12 col-sm-12">
+        <!-- <a class="banner banner-1" [routerLink] = "['/buildpc']"> --><a class="banner banner-1" [routerLink] = "['/']">
+          <img src="../../../assets/img/buildpc.jpg" alt="" height="250px">
+          <div class="banner-caption text-center">
+            <!-- <h2 class="white-color">Build PC</h2> -->
+          </div>
+        </a>
+      </div>
+      <!-- /banner -->
+
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /section -->
+
+
+<!-- section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2 class="title">Latest Products</h2>
+        </div>
+      </div>
+      <!-- section title -->
+
+      <!-- Product Single -->
+      <div *ngFor="let product of listProducts; let i = index">
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="product product-single">
+          <div class="product-thumb">
+            <div class="product-label">									
+                <span class="sale">New</span>
+            </div>
+            <button class="main-btn quick-view" routerLink="/product/{{product.id}}" ><i class="fa fa-search-plus"></i> Quick view</button>
+            <img src="{{product.image}}" alt="" width="270px" height="270px">
+          </div>
+          <div class="product-body">
+            <h3 class="product-price">{{product.name}}</h3>						
+            <h2 class="product-name"><a href="#">Giá: {{product.salePrice | number}} VNĐ</a></h2>
+            <div class="product-btns">
+              <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+              <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+              <button (click)="addProductCart(product)" class="primary-btn add-to-cart">
+                  <i class="fa fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- /Product Single -->      
+    </div>
+    <!-- /row -->
+
+    <!-- row -->			
+    <!-- /row -->
+
+    <!-- row -->
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2 class="title">Picked For You</h2>
+        </div>
+      </div>
+      <!-- section title -->
+
+      <!-- Product Single -->
+      <div *ngFor="let product of listDiscountProduct; let i = index">
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="product product-single">
+          <div class="product-thumb">
+              <div class="product-label">
+                  <span>New</span>
+                  <span class="sale">-{{product.discount}}%</span>
+                </div>
+            <button class="main-btn quick-view" routerLink="/product/{{product.id}}"><i class="fa fa-search-plus"></i> Quick view</button>
+            <img src="{{product.image}}" alt="" width="270px" height="270px">
+          </div>
+          <div class="product-body">														
+            <h3 class="product-price">{{product.name}}</h3>							
+            <h2 class="product-name"><a href="#">Giá: {{product.salePrice | number}} VNĐ</a></h2><h5>(Giá gốc: <del class="product-old-price">{{product.price | number}} VNĐ</del>)</h5>
+            <div class="product-btns">
+              <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+              <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+              <button (click)="addProductCart(product)" class="primary-btn add-to-cart">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- /Product Single -->
+      
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /section -->

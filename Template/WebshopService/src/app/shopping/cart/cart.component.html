@@ -1,0 +1,84 @@
+<div id="navigation">
+    <!-- container -->
+    <div class="container">
+      <div id="responsive-nav">
+    <div class="menu-nav">
+    <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+    <ul class="menu-list">
+      <li><a [routerLink] = "['/']">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women</a>            
+      </li>
+      <li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men</a>            
+      </li>
+      <li><a href="#">Sales</a></li>
+      <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages</a>            
+      </li>
+    </ul>
+    </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="order-summary clearfix">
+          <!-- <div *ngIf="cart.length">--><div>
+            <div class="section-title">
+              <h3 class="title">Order Review</h3>
+            </div>
+            <table class="shopping-cart-table table">
+              <thead>
+                <tr>
+                  <th class="text-center"></th>
+                  <th>Product</th>
+                  <th class="text-center">Price</th>
+                  <th class="text-center">Quantity</th>
+                  <th class="text-center">Total</th>
+                  <th class="text-right">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cart">
+                  <td class="thumb">
+                    <img src="{{item.product.image}}" alt="" class="img-responsive" style="width:100px; height:100px">
+                  </td>
+                  <td class="details">
+                    <a style="cursor: pointer" (click)="routeProduct(item.product.name,item.product.id)">{{item.product.name}}</a>                    
+                  </td>
+                  <td class="price text-center">
+                    <strong>{{item.product.salePrice | number}}</strong>
+                    <br>
+                  </td>
+                  <td class="qty text-center">                    
+                    <input class="input" id="number" type="number" min="1" value="{{item.quantity}}" #quantity
+                     (change)="updateQuantity(item.product,quantity.value)">
+                  </td>
+                  <td class="total text-center">
+                    <strong class="primary-color">{{item.product.salePrice * item.quantity | number}}</strong>
+                  </td>
+                  <td class="text-right">
+                    <button class="main-btn icon-btn" (click)="remove(item.product)">
+                      <i class="fa fa-close"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th class="empty" colspan="3"></th>
+                  <th>TOTAL</th>
+                  <th colspan="2" class="total">{{total | number}}</th>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="pull-right">
+              <button class="primary-btn" routerLink="payment">Place Order</button>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,63 @@
+<app-category-list></app-category-list>
+
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- ASIDE -->
+      <div id="aside" class="col-md-3">        
+      </div>
+      <!-- /ASIDE -->
+
+      <!-- MAIN -->
+      <div id="main" class="col-md-9">
+        <!-- store top filter -->
+        <div class="store-filter clearfix">
+          <div class="pull-left">            
+              <h3 class="title">List Product</h3>
+          </div>          
+        </div>
+        <!-- /store top filter -->
+
+        <!-- STORE -->
+        <div id="store">
+          <!-- row -->
+          <div class="row">
+            <!-- Product Single -->
+            <div *ngFor="let product of listProducts; let i = index">
+            <div class="col-md-4 col-sm-6 col-xs-6">
+              <div class="product product-single">
+                <div class="product-thumb">
+                  <div class="product-label">									
+                      <span class="sale">New</span>
+                  </div>
+                  <button class="main-btn quick-view" routerLink="/product/{{product.id}}"><i class="fa fa-search-plus"></i> Quick view</button>
+                  <img src="{{product.image}}" alt="" width="270px" height="270px">
+                </div>
+                <div class="product-body">
+                  <h3 class="product-price">{{product.name}}</h3>						
+                  <h2 class="product-name"><a href="#">Giá: {{product.salePrice | number}} VNĐ</a></h2>
+                  <div class="product-btns">
+                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                    <button (click)="addProductCart(product)" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- /Product Single -->
+
+  
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /STORE -->        
+      </div>
+      <!-- /MAIN -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
