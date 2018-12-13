@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { AdminModule } from './admin/admin.module';
 import { ShoppingModule } from './shopping/shopping.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
@@ -28,7 +29,9 @@ import { ShoppingComponent } from './shopping/shopping/shopping.component';
     AppRoutingModule,
     AdminModule,
     HttpModule,
-    ShoppingModule
+    ShoppingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService, 

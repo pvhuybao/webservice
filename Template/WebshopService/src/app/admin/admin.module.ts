@@ -16,6 +16,15 @@ import { ProductsComponent } from './products/products.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { OrdersComponent } from './orders/orders.component';
+import { UsersComponent } from './users/users.component';
+import { StatisticalComponent } from './statistical/statistical.component';
+import { ImportsComponent } from './imports/imports.component';
+import { ImportEditComponent } from './imports/import-edit/import-edit.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { ImportCreateComponent } from './imports/import-create/import-create.component';
 
 @NgModule({
     imports: [
@@ -23,7 +32,8 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
         FormsModule,
         AdminRoutingModule,
         BrowserAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        BsDatepickerModule.forRoot()
     ],
 
     declarations: [
@@ -34,6 +44,14 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
         ProductCreateComponent,
         ProductDetailComponent,
         ProductEditComponent,
+        OrdersComponent,
+        UsersComponent,
+        StatisticalComponent,
+        ImportsComponent,
+        ImportEditComponent,
+        OrderDetailComponent,
+        UserEditComponent,
+        ImportCreateComponent,
     ],
 
     providers: [

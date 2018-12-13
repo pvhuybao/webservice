@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../../models/user';
+import { AccountService } from '../../shopping/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) { }
+
+  user = new UserModel;
 
   ngOnInit() {
+
+    this.accountService.getUserSession().subscribe(data => {
+      this.user = data;
+    });
+  }
+
+  logout() {
+    sessionStorage.removeItem('user');
+    this.accountService.setUserSession();
+    this.router.navigateByUrl("");
   }
 
 }

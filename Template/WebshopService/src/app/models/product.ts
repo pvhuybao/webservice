@@ -7,8 +7,9 @@ export class ProductModel {
     idCategory: number;
     price: number;
     quantity: number;
-    image: string;
+    image: string = "https://static.umotive.com/img/product_image_thumbnail_placeholder.png";
     discount: number;
+    salePrice: number;
 
     constructor() {}
 }

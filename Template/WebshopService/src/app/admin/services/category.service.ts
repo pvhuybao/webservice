@@ -12,7 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CategoryService {
-  private API_PATH = 'http://localhost/webshopserver/api/category';
+  // private API_PATH = 'http://localhost/webshopserver/api/category';
+  private API_PATH = 'http://localhost:8888/api/category';
 
   constructor(private http: HttpClient,) { }
 

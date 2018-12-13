@@ -27,7 +27,7 @@ export class ProductEditComponent implements OnInit {
     let params: any = this.activatedRoute.snapshot.params;
     this.id = params.id;
     this.getById(this.id);
-    this.getCategories();
+    this.getCategories();    
   }
 
   getCategories() {
@@ -39,8 +39,9 @@ export class ProductEditComponent implements OnInit {
   getById(id) {    
     this.productService.getById(id).subscribe(product => {
       this.productService.getProduct(product);
+      this.updatePrice();
       this.pro = product;
-      this.idCategory = this.pro.idCategory;
+      this.idCategory = product.idCategory;
     });
   }
 
@@ -52,10 +53,17 @@ export class ProductEditComponent implements OnInit {
     this.pro.idCategory = this.pro.idCategory;
     this.pro.image = this.pro.image;
     this.pro.price = this.pro.price;
+    this.pro.salePrice = this.pro.price - (this.pro.price*this.pro.discount/100);
     this.pro.quantity = this.pro.quantity;   
 
     this.productService.update(this.pro.id, this.pro).subscribe(data => {
       this.router.navigate(['/admin/products']);
+    });
+  }
+
+  updatePrice() {
+    this.pro.salePrice = this.pro.price - (this.pro.price*this.pro.discount/100);
+    this.productService.update(this.pro.id, this.pro).subscribe(data => {
     });
   }
 

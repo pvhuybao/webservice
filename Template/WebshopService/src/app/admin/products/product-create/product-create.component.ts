@@ -48,7 +48,8 @@ export class ProductCreateComponent implements OnInit {
       detail: this.detail,
       quantity: this.quantity,
       discount: this.discount,
-      price: this.price
+      price: this.price,
+      salePrice: this.price - (this.price*this.discount/100)
     }
 
     this.productService.add(product).subscribe(data => {

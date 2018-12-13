@@ -12,7 +12,8 @@ const httpOptions = {
 })
 export class ProductService {
 
-  private API_PATH = 'http://localhost/webshopserver/api/product';
+  // private API_PATH = 'http://localhost/webshopserver/api/product';
+  private API_PATH = 'http://localhost:8888/api/product';
 
   constructor(private http: HttpClient) { }
 

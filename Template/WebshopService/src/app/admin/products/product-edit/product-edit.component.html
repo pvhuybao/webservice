@@ -32,7 +32,7 @@
         <strong>Category:</strong>
         <div>
           <p>
-            <select class=" input custom-select" [(ngModel)]="idCategory">
+            <select class=" input custom-select" [(ngModel)]="pro.idCategory">
               <option *ngFor="let category of categories" [value]="category.id" selected>{{category.name}}</option>
             </select>
           </p>
@@ -76,7 +76,7 @@
         <div>
           <p>
             <strong>Price:</strong>
-            <input [(ngModel)]="pro.price" class="input search-input">
+            <input [(ngModel)]="pro.price" class="input search-input" (blur)="updatePrice()">
           </p>
         </div>
       </div>
@@ -86,11 +86,31 @@
         <div>
           <p>
             <strong>Discount:</strong>
-            <input [(ngModel)]="pro.discount" class="input search-input" type="number" min="0">
+            <input [(ngModel)]="pro.discount" class="input search-input" type="number" min="0" (blur)="updatePrice()">
           </p>
         </div>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Quantity:</strong>
+            <input [(ngModel)]="pro.quantity" class="input search-input" type="number" min="0">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-body">
+        <div>
+          <p>
+            <strong>Sale price:</strong>
+            <input [(ngModel)]="pro.salePrice" class="input search-input" type="number" min="0" readonly>
+          </p>
+        </div>
+      </div>
+    </div>    
 
     <br/><br/><br/><br/><br/><br/><br/><br/>
     &nbsp;&nbsp;&nbsp;
